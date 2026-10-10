@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: USERNAME/REPO   # <- این را با نام کاربری و نام مخزن GitHub خودتان عوض کنید
+  repo: fakhrizadeh-school/fakhrizadeh-school.github.io   # <- این را با نام کاربری و نام مخزن GitHub خودتان عوض کنید
   branch: main
 
 media_folder: images/uploads
