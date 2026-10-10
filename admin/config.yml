@@ -1,0 +1,71 @@
+backend:
+  name: github
+  repo: USERNAME/REPO   # <- این را با نام کاربری و نام مخزن GitHub خودتان عوض کنید
+  branch: main
+
+media_folder: images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: site
+    label: محتوای سایت
+    files:
+      - name: site
+        label: همه‌ی بخش‌ها
+        file: content/site.json
+        format: json
+        fields:
+          - label: بخش اول صفحه
+            name: hero
+            widget: object
+            fields:
+              - {label: عنوان (خط اول), name: title1, widget: string}
+              - {label: عنوان (خط دوم، طلایی), name: title2, widget: string}
+              - {label: متن زیر عنوان, name: text, widget: text}
+          - label: درباره هنرستان
+            name: about
+            widget: object
+            fields:
+              - {label: تاریخچه و رسالت, name: history, widget: text}
+              - {label: نام‌گذاری, name: naming, widget: text}
+              - {label: پیام مدیر, name: manager_message, widget: text}
+              - {label: نام مدیر, name: manager_name, widget: string}
+          - label: رشته‌ها
+            name: fields
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - {label: آیکون (یک ایموجی), name: icon, widget: string, required: false}
+              - {label: نام رشته, name: title, widget: string}
+              - {label: توضیح, name: text, widget: text}
+          - label: مراحل ثبت‌نام
+            name: steps
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - {label: عنوان مرحله, name: title, widget: string}
+              - {label: توضیح, name: text, widget: string}
+          - label: اخبار و اطلاعیه‌ها (جدیدترین را بالا بگذارید)
+            name: news
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - {label: روز (مثلاً ۱۵), name: day, widget: string}
+              - {label: ماه (مثلاً مهر), name: month, widget: string}
+              - {label: عنوان خبر, name: title, widget: string}
+              - {label: متن کوتاه, name: text, widget: text}
+          - label: گالری تصاویر
+            name: gallery
+            widget: list
+            summary: "{{fields.caption}}"
+            fields:
+              - {label: عنوان زیر عکس, name: caption, widget: string}
+              - {label: عکس, name: image, widget: image, required: false}
+          - label: تماس با ما
+            name: contact
+            widget: object
+            fields:
+              - {label: آدرس, name: address, widget: string}
+              - {label: تلفن, name: phone, widget: string}
+              - {label: ساعت کاری, name: hours, widget: string}
+              - {label: لینک نقشه (نشان، بلد، گوگل مپ), name: map_link, widget: string, required: false}

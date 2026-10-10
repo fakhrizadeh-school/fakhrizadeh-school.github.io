@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>هنرستان شهید فخری‌زاده</title>
+<meta name="description" content="وب‌سایت رسمی هنرستان شهید فخری‌زاده؛ معرفی رشته‌ها، ثبت‌نام و اخبار">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1c1250; --ink2:#2d1b6e; --gold:#e0a82e; --gold2:#f6d77a;
+  --teal:#12b5a6; --coral:#ff6f61; --sky:#4cc3ff; --cream:#fffaf0; --text:#241a4d; --muted:#6b6490;
+  --card:#ffffff; --line:#eadfc4;
+}
+@media (prefers-color-scheme:dark){
+  :root{--cream:#14102f; --text:#f3eefc; --muted:#b5acd8; --card:#1f1850; --line:#3a2f7a}
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:'Vazirmatn',Tahoma,'Segoe UI',sans-serif;background:var(--cream);color:var(--text);line-height:1.9;font-size:16px}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:var(--ink);border-bottom:3px solid var(--gold)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:900;font-size:18px}
+.logo{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--gold2),var(--gold));display:grid;place-items:center;color:var(--ink);font-weight:900}
+nav ul{display:flex;gap:4px;list-style:none}
+nav a{display:block;padding:6px 12px;border-radius:20px;color:#e9e3ff;font-size:15px;font-weight:500}
+nav a:hover{background:var(--ink2);color:var(--gold2)}
+.burger{display:none;background:none;border:2px solid var(--gold);color:var(--gold2);border-radius:10px;padding:4px 12px;font:inherit;cursor:pointer}
+
+/* hero */
+.hero{background:radial-gradient(circle at 15% 20%,var(--ink2),var(--ink) 60%);color:#fff;position:relative;overflow:hidden;padding:72px 0 96px}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.hero::before{width:420px;height:420px;left:-120px;bottom:-160px;background:var(--teal);opacity:.25}
+.hero::after{width:300px;height:300px;left:12%;top:-140px;background:var(--coral);opacity:.22}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.5;font-weight:900}
+.hero h1 span{display:block;color:var(--gold2)}
+.hero p{margin:16px 0 28px;color:#d9d1f7;max-width:46ch}
+.btn{display:inline-block;padding:12px 28px;border-radius:30px;font-weight:700;border:2px solid transparent;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:var(--ink)}
+.btn.line{border-color:var(--gold2);color:var(--gold2);margin-right:8px}
+/* the memorable piece: golden arch with stats */
+.arch{justify-self:center;width:min(300px,100%);aspect-ratio:3/4;border-radius:150px 150px 24px 24px;padding:8px;background:linear-gradient(160deg,var(--gold2),var(--gold) 50%,#b9791a)}
+.arch div{height:100%;border-radius:142px 142px 18px 18px;background:linear-gradient(180deg,var(--ink2),var(--ink));display:flex;flex-direction:column;justify-content:flex-end;gap:10px;padding:28px 20px;text-align:center}
+.arch b{font-size:34px;color:var(--gold2);display:block;line-height:1.3}
+.arch small{color:#d9d1f7;font-size:14px}
+.arch .row{display:flex;justify-content:space-around;border-top:1px solid #ffffff30;padding-top:12px}
+
+/* sections */
+section{padding:72px 0}
+h2{font-size:clamp(24px,3.4vw,34px);font-weight:900;margin-bottom:8px;color:var(--ink)}
+@media (prefers-color-scheme:dark){h2{color:var(--gold2)}}
+.sub{color:var(--muted);margin-bottom:32px;max-width:60ch}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}
+.panel h3{margin-bottom:6px;color:var(--teal)}
+.quote{background:linear-gradient(135deg,var(--ink2),var(--ink));color:#fff;border-radius:20px;padding:28px;border-right:6px solid var(--gold)}
+.quote p{color:#e6e0ff}.quote b{color:var(--gold2)}
+
+.fields{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.field{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;border-top:6px solid var(--c)}
+.field .ic{width:48px;height:48px;border-radius:14px;background:var(--c);display:grid;place-items:center;font-size:24px;margin-bottom:10px}
+.field h3{font-size:18px}.field p{color:var(--muted);font-size:14.5px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;counter-reset:s;list-style:none}
+.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px 20px 20px 16px;position:relative}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--gold);color:var(--ink);font-weight:900;margin-bottom:8px}
+.alt{background:linear-gradient(180deg,#fff3d6,#ffe9e2)}
+@media (prefers-color-scheme:dark){.alt{background:#1a1442}}
+
+.news{display:grid;gap:14px}
+.item{display:flex;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px}
+.date{flex:none;width:64px;text-align:center;background:var(--ink);color:var(--gold2);border-radius:14px;padding:6px 0;font-weight:700;line-height:1.4}
+.date small{display:block;color:#d9d1f7;font-weight:400}
+
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.ph{aspect-ratio:4/3;border-radius:18px;display:grid;place-items:center;color:#fff;font-weight:700;text-align:center;padding:10px}
+.ph:nth-child(1){background:linear-gradient(135deg,var(--teal),var(--sky))}
+.ph:nth-child(2){background:linear-gradient(135deg,var(--coral),var(--gold))}
+.ph:nth-child(3){background:linear-gradient(135deg,var(--ink2),var(--teal))}
+.ph:nth-child(4){background:linear-gradient(135deg,var(--gold),var(--coral))}
+
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.contact dl{display:grid;grid-template-columns:auto 1fr;gap:10px 16px}
+.contact dt{font-weight:700;color:var(--teal)}
+.map{border-radius:20px;border:2px dashed var(--gold);display:grid;place-items:center;min-height:200px;color:var(--muted);text-align:center;padding:16px}
+footer{background:var(--ink);color:#cfc7ef;text-align:center;padding:28px 0;border-top:4px solid var(--gold);font-size:14px}
+
+@media (max-width:760px){
+  .burger{display:block}
+  nav{position:absolute;top:68px;right:0;left:0;background:var(--ink);display:none;padding:8px 20px 16px;border-bottom:3px solid var(--gold)}
+  nav.open{display:block}
+  nav ul{flex-direction:column}
+  .hero .wrap,.about,.contact{grid-template-columns:1fr}
+  .arch{width:240px}
+  section{padding:52px 0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.ph{position:relative;overflow:hidden}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph span{position:absolute;bottom:0;left:0;right:0;padding:18px 10px 8px;background:linear-gradient(transparent,#000a);font-size:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top"><span class="logo">ه</span> هنرستان شهید فخری‌زاده</a>
+    <button class="burger" aria-label="منو" aria-expanded="false" onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">منو</button>
+    <nav id="nav">
+      <ul>
+        <li><a href="#about">درباره ما</a></li>
+        <li><a href="#fields">رشته‌ها</a></li>
+        <li><a href="#register">ثبت‌نام</a></li>
+        <li><a href="#news">اخبار</a></li>
+        <li><a href="#gallery">گالری</a></li>
+        <li><a href="#contact">تماس</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1 id="hero-title">مهارت امروز، <span>آینده‌ی درخشان فردا</span></h1>
+      <p id="hero-text">در هنرستان شهید فخری‌زاده، هنرجویان با آموزش عملی در کارگاه‌های مجهز، مسیر ورود به بازار کار و دانشگاه را با اعتمادبه‌نفس طی می‌کنند.</p>
+      <a class="btn gold" href="#register">ثبت‌نام و پذیرش</a>
+      <a class="btn line" href="#fields">دیدن رشته‌ها</a>
+    </div>
+    <div class="arch" aria-hidden="true">
+      <div>
+        <b>کارگاه‌محور</b>
+        <small>یادگیری با دست، با ذهن، با هدف</small>
+        <div class="row"><span><b style="font-size:24px">۳</b><small>رشته</small></span><span><b style="font-size:24px">۱۰۰٪</b><small>عملی</small></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <h2>درباره هنرستان</h2>
+    <p class="sub">متن زیر نمونه است و باید با اطلاعات رسمی هنرستان جایگزین شود.</p>
+    <div class="about">
+      <div class="panel">
+        <h3>تاریخچه و رسالت</h3>
+        <p id="about-history">هنرستان شهید فخری‌زاده با هدف تربیت نیروی ماهر و خلاق تأسیس شده است. ما باور داریم هر هنرجو با آموزش درست، می‌تواند در مسیر شغلی و علمی خود بدرخشد.</p>
+        <br>
+        <h3>نام‌گذاری</h3>
+        <p id="about-naming">اینجا توضیح کوتاهی درباره‌ی شهید فخری‌زاده و دلیل نام‌گذاری هنرستان قرار می‌گیرد.</p>
+      </div>
+      <div class="quote">
+        <b>پیام مدیر</b>
+        <p id="mgr-msg">«جایگاه این پیام برای متن مدیر هنرستان است؛ خطاب به هنرجویان و خانواده‌هاست و دعوت به همراهی در مسیر یادگیری.»</p>
+        <p style="margin-top:10px"><b id="mgr-name">— نام مدیر</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fields" class="alt">
+  <div class="wrap">
+    <h2>رشته‌های هنرستان</h2>
+    <p class="sub">رشته‌های زیر نمونه هستند؛ لیست واقعی را جایگزین کنید.</p>
+    <div class="fields" id="fields-box">
+      <article class="field" style="--c:var(--gold)"><div class="ic">⚡</div><h3>برق و الکترونیک</h3><p>نصب و تعمیر، مدارهای الکترونیکی و کار با تجهیزات صنعتی.</p></article>
+      <article class="field" style="--c:var(--teal)"><div class="ic">💻</div><h3>کامپیوتر و شبکه</h3><p>برنامه‌نویسی، طراحی وب، سخت‌افزار و راه‌اندازی شبکه.</p></article>
+      <article class="field" style="--c:var(--coral)"><div class="ic">⚙️</div><h3>مکانیک و ماشین‌ابزار</h3><p>تراشکاری، نقشه‌خوانی و ساخت قطعات دقیق.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="register">
+  <div class="wrap">
+    <h2>ثبت‌نام و پذیرش</h2>
+    <p class="sub">مراحل ثبت‌نام در چهار گام ساده:</p>
+    <ol class="steps" id="steps-box">
+      <li><b>انتخاب رشته</b><br>رشته‌ی مورد علاقه را انتخاب کنید.</li>
+      <li><b>آماده‌سازی مدارک</b><br>شناسنامه، کارنامه و عکس.</li>
+      <li><b>مراجعه یا ثبت‌نام اینترنتی</b><br>تاریخ‌ها در بخش اخبار اعلام می‌شود.</li>
+      <li><b>تأیید نهایی</b><br>اعلام نتیجه و شروع کلاس‌ها.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="news" class="alt">
+  <div class="wrap">
+    <h2>اخبار و اطلاعیه‌ها</h2>
+    <p class="sub">آخرین رویدادها و اطلاعیه‌ها (نمونه).</p>
+    <div class="news" id="news-box">
+      <div class="item"><div class="date">۱۵<small>مهر</small></div><div><b>آغاز ثبت‌نام سال تحصیلی جدید</b><br><span style="color:var(--muted)">متن کوتاه خبر اینجا قرار می‌گیرد.</span></div></div>
+      <div class="item"><div class="date">۲۰<small>مهر</small></div><div><b>بازدید دانش‌آموزان از کارگاه‌ها</b><br><span style="color:var(--muted)">متن کوتاه خبر اینجا قرار می‌گیرد.</span></div></div>
+      <div class="item"><div class="date">۱<small>آبان</small></div><div><b>مراسم تجلیل از هنرجویان برتر</b><br><span style="color:var(--muted)">متن کوتاه خبر اینجا قرار می‌گیرد.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <h2>گالری</h2>
+    <p class="sub">این کادرها را با عکس‌های واقعی جایگزین کنید.</p>
+    <div class="gallery" id="gallery-box">
+      <div class="ph">کارگاه برق</div><div class="ph">کلاس کامپیوتر</div><div class="ph">پروژه‌های هنرجویان</div><div class="ph">مراسم هنرستان</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="alt">
+  <div class="wrap">
+    <h2>تماس با ما</h2>
+    <p class="sub">اطلاعات زیر نمونه است.</p>
+    <div class="contact">
+      <div class="panel">
+        <dl>
+          <dt>آدرس</dt><dd id="c-address">شهر، خیابان، پلاک — (آدرس واقعی)</dd>
+          <dt>تلفن</dt><dd id="c-phone" dir="ltr" style="text-align:right">۰۲۱-۰۰۰۰۰۰۰۰</dd>
+          <dt>ساعت کاری</dt><dd id="c-hours">شنبه تا چهارشنبه، ۸ تا ۱۴</dd>
+        </dl>
+      </div>
+      <div class="map" id="c-map">محل نقشه (می‌توانید لینک نقشه‌ی نشان یا گوگل را اضافه کنید)</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">© تمامی حقوق برای هنرستان شهید فخری‌زاده محفوظ است.</div>
+</footer>
+
+<script>
+(function(){
+var colors=['var(--gold)','var(--teal)','var(--coral)','var(--sky)'];
+function $(i){return document.getElementById(i)}
+function set(i,t){var e=$(i);if(e&&t)e.textContent=t}
+function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
+function fill(id,arr,fn){var b=$(id);if(!b||!arr||!arr.length)return;b.textContent='';arr.forEach(function(x,i){b.appendChild(fn(x,i))})}
+function render(d){
+  if(d.hero){var h=$('hero-title');if(h&&d.hero.title1){h.textContent=d.hero.title1+' ';h.appendChild(el('span','',d.hero.title2||''))}set('hero-text',d.hero.text)}
+  if(d.about){set('about-history',d.about.history);set('about-naming',d.about.naming);set('mgr-msg',d.about.manager_message);set('mgr-name',d.about.manager_name)}
+  fill('fields-box',d.fields,function(f,i){var a=el('article','field');a.style.setProperty('--c',colors[i%4]);a.appendChild(el('div','ic',f.icon||'⭐'));a.appendChild(el('h3','',f.title));a.appendChild(el('p','',f.text));return a});
+  fill('steps-box',d.steps,function(f){var l=el('li');l.appendChild(el('b','',f.title));l.appendChild(document.createElement('br'));l.appendChild(document.createTextNode(f.text||''));return l});
+  fill('news-box',d.news,function(n){var it=el('div','item');var dt=el('div','date',n.day);dt.appendChild(el('small','',n.month));var bd=el('div');bd.appendChild(el('b','',n.title));bd.appendChild(document.createElement('br'));var sp=el('span','',n.text);sp.style.color='var(--muted)';bd.appendChild(sp);it.appendChild(dt);it.appendChild(bd);return it});
+  fill('gallery-box',d.gallery,function(g){var p=el('div','ph');if(g.image){var im=document.createElement('img');im.src=g.image;im.alt=g.caption||'';im.loading='lazy';p.appendChild(im);if(g.caption)p.appendChild(el('span','',g.caption))}else{p.textContent=g.caption||''}return p});
+  if(d.contact){set('c-address',d.contact.address);set('c-phone',d.contact.phone);set('c-hours',d.contact.hours);
+    var m=$('c-map');if(m&&/^https?:\/\//.test(d.contact.map_link||'')){m.textContent='';var a=el('a','btn gold','مشاهده روی نقشه');a.href=d.contact.map_link;a.target='_blank';a.rel='noopener';m.appendChild(a)}}
+}
+fetch('content/site.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():Promise.reject()}).then(render).catch(function(){});
+})();
+</script>
+</body>
+</html>
