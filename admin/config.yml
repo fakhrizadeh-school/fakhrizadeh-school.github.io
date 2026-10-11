@@ -80,3 +80,10 @@ collections:
               - {label: تلفن, name: phone, widget: string}
               - {label: ساعت کاری, name: hours, widget: string}
               - {label: لینک نقشه (نشان، بلد، گوگل مپ), name: map_link, widget: string, required: false}
+          - label: پایین سایت
+            name: footer
+            widget: object
+            required: false
+            fields:
+              - {label: متن حقوق (کپی‌رایت), name: text, widget: string, required: false}
+              - {label: نام سازنده یا طراح سایت, name: credit, widget: string, required: false}
