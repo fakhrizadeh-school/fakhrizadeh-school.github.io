@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: fakhrizadeh-school/fakhrizadeh-school.github.io   # <- این را با نام کاربری و نام مخزن GitHub خودتان عوض کنید
+  repo: fakhrizadeh-school/fakhrizadeh-school.github.io
   branch: main
 
 media_folder: images/uploads
@@ -15,6 +15,7 @@ collections:
         file: content/site.json
         format: json
         fields:
+          - {label: لوگوی هنرستان (بالای سایت), name: logo, widget: image, required: false}
           - label: بخش اول صفحه
             name: hero
             widget: object
