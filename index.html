@@ -107,6 +107,12 @@ footer{background:var(--ink);color:#cfc7ef;text-align:center;padding:28px 0;bord
 .ph{position:relative;overflow:hidden}
 .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .ph span{position:absolute;bottom:0;left:0;right:0;padding:18px 10px 8px;background:linear-gradient(transparent,#000a);font-size:14px}
+[hidden]{display:none!important}
+.staff{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px}
+.person{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 16px;text-align:center}
+.person .av{width:96px;height:96px;border-radius:50%;margin:0 auto 12px;overflow:hidden;background:linear-gradient(135deg,var(--c),var(--ink2));display:grid;place-items:center;color:#fff;font-size:34px;font-weight:900;border:3px solid var(--gold)}
+.person .av img{width:100%;height:100%;object-fit:cover}
+.person h3{font-size:17px}.person .rl{color:var(--teal);font-weight:700;font-size:14px}.person p{color:var(--muted);font-size:14px;margin-top:6px}
 </style>
 </head>
 <body>
@@ -118,6 +124,7 @@ footer{background:var(--ink);color:#cfc7ef;text-align:center;padding:28px 0;bord
     <nav id="nav">
       <ul>
         <li><a href="#about">درباره ما</a></li>
+        <li id="nav-staff" hidden><a href="#staff">کادر</a></li>
         <li><a href="#fields">رشته‌ها</a></li>
         <li><a href="#register">ثبت‌نام</a></li>
         <li><a href="#news">اخبار</a></li>
@@ -165,6 +172,14 @@ footer{background:var(--ink);color:#cfc7ef;text-align:center;padding:28px 0;bord
         <p style="margin-top:10px"><b id="mgr-name">— نام مدیر</b></p>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="staff" hidden>
+  <div class="wrap">
+    <h2>کادر هنرستان</h2>
+    <p class="sub">مدیران، معاونان و مربیان هنرستان</p>
+    <div class="staff" id="staff-box"></div>
   </div>
 </section>
 
@@ -252,6 +267,8 @@ function render(d){
   fill('steps-box',d.steps,function(f){var l=el('li');l.appendChild(el('b','',f.title));l.appendChild(document.createElement('br'));l.appendChild(document.createTextNode(f.text||''));return l});
   fill('news-box',d.news,function(n){var it=el('div','item');var dt=el('div','date',n.day);dt.appendChild(el('small','',n.month));var bd=el('div');bd.appendChild(el('b','',n.title));bd.appendChild(document.createElement('br'));var sp=el('span','',n.text);sp.style.color='var(--muted)';bd.appendChild(sp);it.appendChild(dt);it.appendChild(bd);return it});
   fill('gallery-box',d.gallery,function(g){var p=el('div','ph');if(g.image){var im=document.createElement('img');im.src=g.image;im.alt=g.caption||'';im.loading='lazy';p.appendChild(im);if(g.caption)p.appendChild(el('span','',g.caption))}else{p.textContent=g.caption||''}return p});
+  if(d.staff&&d.staff.length){var ss=$('staff'),nv=$('nav-staff');if(ss)ss.hidden=false;if(nv)nv.hidden=false;
+    fill('staff-box',d.staff,function(p,i){var c=el('div','person');var av=el('div','av');av.style.setProperty('--c',colors[i%4]);if(p.photo){var im=document.createElement('img');im.src=p.photo;im.alt=p.name||'';im.loading='lazy';av.appendChild(im)}else{av.textContent=(p.name||'?').trim().charAt(0)}c.appendChild(av);c.appendChild(el('h3','',p.name));if(p.role)c.appendChild(el('div','rl',p.role));if(p.bio)c.appendChild(el('p','',p.bio));return c})}
   if(d.contact){set('c-address',d.contact.address);set('c-phone',d.contact.phone);set('c-hours',d.contact.hours);
     var m=$('c-map');if(m&&/^https?:\/\//.test(d.contact.map_link||'')){m.textContent='';var a=el('a','btn gold','مشاهده روی نقشه');a.href=d.contact.map_link;a.target='_blank';a.rel='noopener';m.appendChild(a)}}
 }
