@@ -31,6 +31,16 @@ collections:
               - {label: نام‌گذاری, name: naming, widget: text}
               - {label: پیام مدیر, name: manager_message, widget: text}
               - {label: نام مدیر, name: manager_name, widget: string}
+          - label: کادر هنرستان (مدیر، معاونان، مربیان)
+            name: staff
+            widget: list
+            required: false
+            summary: "{{fields.name}} - {{fields.role}}"
+            fields:
+              - {label: نام و نام خانوادگی, name: name, widget: string}
+              - {label: سمت (مثلاً مدیر، معاون آموزشی), name: role, widget: string}
+              - {label: عکس, name: photo, widget: image, required: false}
+              - {label: توضیح کوتاه, name: bio, widget: text, required: false}
           - label: رشته‌ها
             name: fields
             widget: list
